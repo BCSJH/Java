@@ -4,22 +4,22 @@ import java.awt.event.*;
 import java.awt.*;
 import java.util.*;
 
-public class Lab9_¿¬½À extends JFrame {
+public class Lab9_ì—°ìŠµ extends JFrame {
 
 	JLabel JL[] = new JLabel[3];
-	JPanel contentMainPane = new JPanel();//¸ŞÀÎ ³»¿ë
+	JPanel contentMainPane = new JPanel();//ë©”ì¸ ë‚´ìš©
 	JLabel result;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new Lab9_¿¬½À();
+		new Lab9_ì—°ìŠµ();
 	}
 
-	Lab9_¿¬½À() {
+	Lab9_ì—°ìŠµ() {
 
 		setContentPane(contentMainPane);
 		contentMainPane.setLayout(null);
-		setTitle("±èÁ¤Çö ÇÁ·¹ÀÓ");
+		setTitle("ê¹€ì •í˜„ í”„ë ˆì„");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
 		
@@ -34,25 +34,25 @@ public class Lab9_¿¬½À extends JFrame {
 
 		}
 		
-		//»çÀÌÁîÁöÁ¤
+		//ì‚¬ì´ì¦ˆì§€ì •
 		JL[0].setLocation(90,50);
 		JL[1].setLocation(140,50);
 		JL[2].setLocation(190,50);
 
-		result = new JLabel("½ÃÀÛÇÕ´Ï´Ù.");
+		result = new JLabel("ì‹œì‘í•©ë‹ˆë‹¤.");
 		result.setSize(100, 40);
 		result.setLocation(110, 100);
 		add(result);
 		contentMainPane.add(result);
 		
-		addKeyListener(new MyKeyListener());//¿£ÅÍÅ°¸¦ ´­·¶À»¶§µµ ¹Ù²î°Ô ÇÏ±â À§ÇÔ
-		setSize(300,200);//ÇÁ·¹ÀÓ »çÀÌÁî ÁöÁ¤
+		addKeyListener(new MyKeyListener());//ì—”í„°í‚¤ë¥¼ ëˆŒë €ì„ë•Œë„ ë°”ë€Œê²Œ í•˜ê¸° ìœ„í•¨
+		setSize(300,200);//í”„ë ˆì„ ì‚¬ì´ì¦ˆ ì§€ì •
 		setVisible(true);
 
 
-	//ÄÁÅ×ÀÌ³Ê°¡ enterÅ° ÀÌº¥Æ®¸¦ ¹ŞÀ» ¼ö ÀÖµµ·Ï ÇÔ??
+	//ì»¨í…Œì´ë„ˆê°€ enterí‚¤ ì´ë²¤íŠ¸ë¥¼ ë°›ì„ ìˆ˜ ìˆë„ë¡ í•¨??
 	
-	class MouseEventDemo implements MouseListener {//¸¶¿ì½º Å¬¸¯ÇÏ¸é ¹Ù²Ù±â
+	class MouseEventDemo implements MouseListener {//ë§ˆìš°ìŠ¤ í´ë¦­í•˜ë©´ ë°”ê¾¸ê¸°
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -70,7 +70,7 @@ public class Lab9_¿¬½À extends JFrame {
 		}
 
 		@Override
-		public void mousePressed(MouseEvent e) {//¸¶¿ì½º¸¦ Å¬¸¯ÇÏ¸é ¹Ù²Ù±â
+		public void mousePressed(MouseEvent e) {//ë§ˆìš°ìŠ¤ë¥¼ í´ë¦­í•˜ë©´ ë°”ê¾¸ê¸°
 			// TODO Auto-generated method stub
 			int x1 = (int)(Math.random() * 5);
 			JL[0].setText(x1 + " ");
@@ -81,11 +81,11 @@ public class Lab9_¿¬½À extends JFrame {
 			int x3 = (int)(Math.random() * 5);
 			JL[2].setText(x3 + " ");
 			
-			if(x1 == x2 && x2 == x3) {	//¸ğµÎ °°Àº ¼ıÀÚÀÏ °æ¿ì
-				result.setText("¸ğµÎ ÀÏÄ¡ÇÕ´Ï´Ù.");	
+			if(x1 == x2 && x2 == x3) {	//ëª¨ë‘ ê°™ì€ ìˆ«ìì¼ ê²½ìš°
+				result.setText("ëª¨ë‘ ì¼ì¹˜í•©ë‹ˆë‹¤.");	
 			}
 			else {
-				result.setText("¾Æ½±³×¿ä");			
+				result.setText("ì•„ì‰½ë„¤ìš”");			
 			}										
 		}
 
@@ -97,7 +97,7 @@ public class Lab9_¿¬½À extends JFrame {
 	contentMainPane.addMouseListener(new MouseEventDemo());
 	
 	}
-	//¿£ÅÍÅ°¸¦ ´­·¯µµ ¹Ù²î°Ô ÇÏ±â À§ÇÔ
+	//ì—”í„°í‚¤ë¥¼ ëˆŒëŸ¬ë„ ë°”ë€Œê²Œ í•˜ê¸° ìœ„í•¨
 	class MyKeyListener extends KeyAdapter {
 
 		public void keyPressed(KeyEvent e) {
@@ -115,10 +115,10 @@ public class Lab9_¿¬½À extends JFrame {
 				int x3 = (int)(Math.random() * 5);
 				JL[2].setText(x3 + " ");
 
-				if (x1 == x2 && x2 == x3)//¸ğµÎ °°Àº ¼ıÀÚÀÏ °æ¿ì
-					result.setText("¸ğµÎ ÀÏÄ¡ÇÕ´Ï´Ù.");
+				if (x1 == x2 && x2 == x3)//ëª¨ë‘ ê°™ì€ ìˆ«ìì¼ ê²½ìš°
+					result.setText("ëª¨ë‘ ì¼ì¹˜í•©ë‹ˆë‹¤.");
 				else
-					result.setText("¾Æ½±³×¿ä");
+					result.setText("ì•„ì‰½ë„¤ìš”");
 			}
 
 			}
