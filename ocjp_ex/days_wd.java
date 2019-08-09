@@ -15,7 +15,7 @@ public class h {
 			case "mon":
 				wd++;
 			case "wed":
-				wd+=2;
+				wd += 2;
 			}
 		}
 		System.out.print(wd);
