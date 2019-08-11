@@ -13,7 +13,7 @@ public class h {
 				wd -= 1;
 				break;
 			case "mon":
-				wd++;
+				wd ++;
 			case "wed":
 				wd += 2;
 			}
