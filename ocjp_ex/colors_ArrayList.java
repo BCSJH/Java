@@ -10,7 +10,7 @@ public class h {
 		colors.add("blue");
 		colors.add("yellow");
 		colors.remove(2);
-		colors.add(3,"cyan");
+		colors.add(3, "cyan");
 		System.out.print(colors);
 	}
 }
