@@ -12,7 +12,7 @@ public class h {
 		list.add("iBATIS");
 		
 		int size = list.size();
-		System.out.println();
+		System.out.println("총 객체수: " + size);
 		System.out.println();
 		
 		String skill = list.get(2);
