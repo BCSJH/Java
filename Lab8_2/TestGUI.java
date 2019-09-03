@@ -5,14 +5,14 @@ import java.awt.*;
 public class TestGUI  extends JFrame{
 
 TestGUI(){
-	setTitle("±èÁ¤Çö ÇÁ·¹ÀÓ");
+	setTitle("ê¹€ì •í˜„ í”„ë ˆì„");
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	Container c = getContentPane();
-	c.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 20)); //¼öÆò, ¼öÁ÷ °£°İ
-	c.setBackground(Color.YELLOW);//¹è°æ»ö
+	c.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 20)); //ìˆ˜í‰, ìˆ˜ì§ ê°„ê²©
+	c.setBackground(Color.YELLOW);//ë°°ê²½ìƒ‰
 	
-	//¹öÆ° Ãß°¡ÇÏ±â
+	//ë²„íŠ¼ ì¶”ê°€í•˜ê¸°
 	c.add(new JButton("+"));
 	c.add(new JButton("-"));
 	c.add(new JButton("*"));
@@ -28,12 +28,15 @@ TestGUI(){
 	c.add(new JButton("8"));
 	c.add(new JButton("9"));
 	c.add(new JButton("0"));
-	setSize(300,200);//»çÀÌÁî
+	c.add(new JButton("-"));
+	c.add(new JButton("-"));
+	c.add(new JButton("-"));
+	setSize(300,200);//ì‚¬ì´ì¦ˆ
 	setVisible(true);
 }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new TestGUI();//Ãâ·Â
+		new TestGUI();//ì¶œë ¥
 
 	}
 
