@@ -13,7 +13,7 @@
             font-family: "Nanum Gothic", sans-serif;
         }
     </style>
-    <script src = "../js/Login_Join/Login.js"></script>
+    <script src = "../js/Login_Join/Join.js"></script>
     <script>
         function login(){
             var id = document.getElementById('userId').value;
@@ -27,34 +27,39 @@
     - GET(기본값) : 사용자입력값 url노출
     - POST       : 사용자입력값 url노출되지 않음
 -->
-<form target = "idpwd" action="Loginpage.html" method="GET">
+<form name = "joinForm" target = "idpwd" action="Loginpage.html" method="GET">
     <table>
         <tr>
-            <td><label for="new_userId">아이디 </label></td>
-            <td><input type="text" id="new_userId" name="new_userId"></td>
+            <td><label for="id">아이디 </label></td>
+            <td><input type="text" id="id" name="id"></td>
+            <td><span id = "id_msg"></span></td>
         </tr>
         <tr>
-            <td><label for="new_password">비밀번호 </label></td>
-            <td><input type="password" id="new_password" name="new_password"></td>
+            <td><label for="password1">비밀번호 </label></td>
+            <td><input type="password1" id="password1" name="password1"></td>
+            <td><span id = "password1_msg"></span></td>
         </tr>
         <tr>
-            <td><label for="password_check">비밀번호 확인 </label></td>
-            <td><input type="password" id="password_check" name="new_password_check"></td>
+            <td><label for="password2_msg">비밀번호 확인 </label></td>
+            <td><input type="password2" id="password2" name="password2"></td>
+            <td><span id = "password2_msg"></span></td>
         </tr>
         <tr>
-            <td><label for="new_username">이름 </label></td>
-            <td><input type="text" id="new_username" name="new_username"></td>
+            <td><label for="name">이름 </label></td>
+            <td><input type="text" id="name" name="name"></td>
+            <td><span id = "name_msg"></span></td>
         </tr>
         <tr>
-            <td><label for="new_phone">전화번호 </label></td>
-            <td><input type="text" id="new_phone" name="new_phone" placeholder="01000000000"></td>
+            <td><label for="phone">전화번호 </label></td>
+            <td><input type="text" id="phone" name="phone" placeholder="01000000000"></td>
+            <td><span id = "phone_msg"></span></td>
         </tr>
         <tr>
-            <td><label for="new_email">email </label></td>
-            <td><input type="text" id="new_email" name="new_email" placeholder="text@naver.com"></td>
+            <td><label for="email">email </label></td>
+            <td><input type="text" id="email" name="email" placeholder="text@naver.com"></td>
         </tr>
         <tr>
-            <td><input type="submit" value="회원가입" onclick="Join();"></td>
+            <td><input type="button" value="회원가입" onclick="join();"></td>
         </tr>
     </table>
 </form>

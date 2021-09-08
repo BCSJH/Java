@@ -1,47 +1,152 @@
+let Info_SideInfo = parent.document.getElementById("Info_SideInfo");
+let Info_Content = parent.document.getElementById("Info_Content");
+let Info_Header = parent.document.getElementById("Info_Header");
+
 function changes(name){
-    var Info_Header = parent.document.getElementById("Info_Header");
-    var Info_SideInfo = parent.document.getElementById("Info_SideInfo");
-    var Info_Content = parent.document.getElementById("Info_Content");
 
-    Info_SideInfo.style.display = "none"; // sns 박스 값들 없애기
-    Info_Content.style.height = "350px"; // 사이즈 크게 하기
-
-    main_color(); // 메뉴 색깔 변화
+    one_color(name);// 메뉴 선택한 값 하얗게 만들기
     
-    one_color(name);// 선택한 값 하얗게 만들기
-    // display_block();
-    // display_none(name);
+    if(name == "a_Home"){
+        original_header(Info_Header, Info_Content);
+        All_display(name);
+    
+        fadeIn(Info_SideInfo);
+        // Info_SideInfo.style.display = "block"; // sns 박스 값들 없애기
+    }
+    else{
+        change_header(Info_Header, Info_Content);
+        Element_display_none(name);
+        
+        fadeOut(Info_SideInfo); // sns 박스 값들 없애기
+        
+    }
+    content_show(Info_Content);
 }
+
+function func_reaload(){
+    parent.location.reload();
+}
+
+//Content 보이기
+function content_show(Info_Content){
+    let Info_Content_child = Info_Content.childNodes[0];
+    var a = $(Info_Content_child).contents().find('#Content');
+    // console.log($(Info_Content_child).contents().find('#Content'));
+    a.css('display','block');
+}
+
 
 // 이전에 색깔이 변화된 아이들은 원래 색깔로 해당 a 태그 값들 조정
 function main_color(){
-    var menus = document.getElementsByTagName('a'); 
-    for(var i = 0; i < menus.length; i++){
-        var menu_one = menus.item(i);
+    let menus = document.getElementsByTagName('a'); 
+    for(let i = 0; i < menus.length; i++){
+        let menu_one = menus.item(i);
         menu_one.style.color = "black";
         menu_one.style.opacity = "0.5";
     }
 }
 
+// iframe에 있는 하위 요소에 javascript로 접근하는 방법을 못찾겠어서 결국 jquery 사용
+// iframe 하위 요소 접근 참고 : https://doctorson0309.tistory.com/74
+// jquery animate 참고 : https://www.codingfactory.net/11820
+function change_header(Info_Header, Info_Content) {
+    let Header_child = parent.document.getElementById("Info_Header").childNodes[0];
+    let div_box = $(Header_child).contents().find('#box div');
+    let Info_img = $(Header_child).contents().find('#Info_img');
+    div_box.css("display","inline");
+
+    $(Info_Header).animate({
+        height : 110
+    },1000);
+
+    Info_img.animate({
+        width: 90, 
+        height: 90
+    },950);
+    content_small_size(Info_Content);
+}
+
+//헤더 
+function original_header(Info_Header, Info_Content) {
+    let a = parent.document.getElementById("Info_Header").childNodes[0];
+    let div_box = $(a).contents().find('#box div');
+    let Info_img = $(a).contents().find('#Info_img');
+    div_box.css("display","inline");
+
+    Info_img.animate({
+        height : 40, 
+        width : 40
+    },1000);
+    // Info_img.height(100); // 애니메이션 없이 크기 조절
+    // Info_img.width(100);
+
+    $(Info_Header).animate({
+        height : 80
+    },950);
+
+    content_big_size(Info_Content);
+
+    div_box.css("display","block");
+}
+
+function content_small_size(Info_Content){
+    $(Info_Content).animate({
+        height : 520
+    });
+}
+function content_big_size(Info_Content){
+    $(Info_Content).animate({
+        height : 530
+    });
+}
 //선택한 값 하얗게 만들고 나머지 메뉴는 투명하게 만들기
 function one_color(name){
-    var menu = document.getElementById(name);
+    main_color(); // 메뉴 색깔 변화
+    let menu = document.getElementById(name);
     menu.style.color = "white";
     menu.style.opacity = "1";
 }
 
-function display_none(name){
-    var p_tage = document.getElementsByClassName('Content');
-    var name_str = name.split('_')[1]; // 클릭한 값의 아이디 받아오기
-    for(var i = 0; i < p_tage.length; i++){
-        var p_tage_one = p_tage.item(i);
-        // console.log(p_tage_one);
-        if(p_tage_one.id == name_str){
-            console.log("비교 잘 됨");
-        }else{
-            console.log("지워야됨");
-            p_tage_one.style.display = "hidden";
+//메뉴 누른 항목만 보이게 하기
+// querySelectorAll 사용해보기
+function All_display(name){
+    let name_str = name.split('_')[1]; // 클릭한 값의 아이디 받아오기
+    if(name_str == "Home"){
+        let tage = document.querySelectorAll(".Content");
+        for(let i = 0; i < tage.length; i++){
+            tage.item(i).style.display = "block";
         }
     }
+}
 
+//Content에서 클릭한 값 이외의 항목은 none 처리
+//getElementsByClassName 사용해보기
+function Element_display_none(name){
+    let tage = document.getElementsByClassName('Content');
+    let name_str = name.split('_')[1]; // 클릭한 값의 아이디 받아오기
+    for(let i = 0; i < tage.length; i++){
+        let tage_one = tage.item(i);
+        if(tage_one.id == name_str){
+            tage_one.style.display = "block";
+        }else{
+            tage_one.style.display = "none";
+        }
+    }
+}
+
+//서서히 보여주기
+function fadeIn(Info_SideInfo){
+    $(Info_SideInfo).animate({
+        opacity : "1",
+        height : 40
+    },500);
+    Info_SideInfo.style.display = "block";
+}
+
+function fadeOut(Info_SideInfo){
+    $(Info_SideInfo).animate({
+        opacity : "0",
+        height : 0
+    },500);
+    Info_SideInfo.style.display = "none";
 }

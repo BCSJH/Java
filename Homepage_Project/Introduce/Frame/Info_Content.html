@@ -23,6 +23,11 @@
     #Resume > li > a {
         text-decoration: none;
         color:black;
+        opacity: 0.5;
+    }
+    #Resume > li > #a_Home{
+        color:white;
+        opacity: 1;
     }
     hr {
         border: 0;
@@ -32,6 +37,7 @@
     #ResemMenu > #Resume{
         margin-left: auto;
         margin-right: auto;
+        
     }
     #ResumMenu{
         position: fixed;
@@ -41,7 +47,13 @@
         width: 100%;
         height: 50px;
     }
-
+    #Content{
+        display: none;
+        background-color:#F5F5F5;
+    }
+    #Content #Myself #myself_info{
+        background-color: white;
+    }
     table{
         width: 100%;
     }
@@ -53,32 +65,38 @@
         background-color: white;
     }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../js/Content.js"></script>
 </head>
 <body>
     <div id = "Menu">
         <div id = "ResumMenu">
             <ul id = "Resume">
-                <li><a id = "a_Myself" href = "#Myself" onclick="changes('a_Myself');">자기소개</a></li>
-                <li><a id = "a_Education" href = "#Education" onclick="changes('a_Education');">학력사항</a></li>
-                <li><a id = "a_Career" href = "#Career" onclick="changes('a_Career');">경력사항</a></li>
-                <li><a id = "a_Certificate" href = "#Certificate" onclick="changes('a_Certificate');">보유 자격증</a></li>
+                <li><a id = "a_Home" name = "a_check" href = "#Myself" onclick="changes('a_Home');">홈</a></li>
+                <li><a id = "a_Myself" name = "a_check" href = "#Myself" onclick="changes('a_Myself');">자기소개</a></li>
+                <li><a id = "a_Education" name = "a_check" href = "#Education" onclick="changes('a_Education');">학력사항</a></li>
+                <li><a id = "a_Career" name = "a_check" href = "#Career" onclick="changes('a_Career');">경력사항</a></li>
+                <li><a id = "a_Certificate" name = "a_check" href = "#Certificate" onclick="changes('a_Certificate');">보유 자격증</a></li>
             </ul>
         </div>
         <div id = "Content">
-            <p id = "Myself" class = "Content">
-                <br><br><br>
+            <div id = "Myself" class = "Content">
+                <br><br>
                 <h1>자기소개</h1>
-                안녕하세요.👀<br>
-                저는 풀스택 개발자💻가 되고 싶은 김정현입니다.🙋‍♀️<br>
-                언젠가 번뜩이는 아이디어💡가 떠올랐을 때 프로그램을 기획부터 개발까지 혼자 만드는 것이 꿈입니다. <br>
-                기능을 구현할 때 발생하는 오류를 해결했을 때 희열감✨이 좋아서 개발자의 길로 계속 걸어가고 있습니다. <br>
-                아직 배워야 할 것이 산더미지만 차근차근 배우겠습니다.<br>
-                잘 부탁드립니다.
-            </p>
-            <hr>
-            <p id = "Education" class = "Content">
-                <br><br><br>
+                <p id = "myself_info">
+                    안녕하세요.👀<br>
+                    저는 풀스택 개발자💻가 되고 싶은 김정현입니다.🙋‍♀️<br>
+                    기능을 구현할 때 발생하는 오류를 해결했을 때 희열감✨이 좋아서 개발자의 길로 계속 걸어가고 있습니다. <br>
+                    언젠가 번뜩이는 아이디어💡가 떠올랐을 때 프로그램을 기획부터 개발까지 혼자 만드는 것이 꿈입니다. <br>
+                    기본 개념들을 대학교 수업으로 세기고 자격증 취득을 통해 다지고,<br>
+                    KH정보교육원 수업을 통해 실무 중심 교육📝을 들었습니다.<br>
+                    아직 배워야 할 것이 산더미지만 차근차근 배우겠습니다.<br>
+                    잘 부탁드립니다.🙏
+                </p>
+                <hr>
+            </div>
+            <div id = "Education" class = "Content">
+                <br><br>
                 <h1>학력</h1>
                 <table class = "EducationT">
                     <thead>
@@ -110,10 +128,10 @@
                         </tr>
                     </tbody>
                 </table>
-            </p>
-            <hr>
-            <p id = "Career" class = "Content">
-                <br><br><br>
+                <hr>
+            </div>
+            <div id = "Career" class = "Content">
+                <br><br>
                 <h1>경력</h1>
                 <table class = "CareerT">
                     <thead>
@@ -130,7 +148,7 @@
                         </tr>
                         <tr>
                             <td>담당업무</td>
-                            <td>유지보수, 운영지원, 현장지원, QA, SQL</td>    
+                            <td>유지보수, 운영/현장지원, QA, SQL</td>    
                         </tr>
                         <tr>
                             <td>퇴사사유</td>
@@ -138,10 +156,10 @@
                         </tr>
                     </tbody>
                 </table>
-            </p>
-            <hr>
-            <p id = "Certificate" class = "Content">
-                <br><br><br>
+                <hr>
+            </div>
+            <div id = "Certificate" class = "Content">
+                <br><br>
                 <h1>보유 자격증</h1>
                 <table class = "CertificateT">
                     <tbody>
@@ -170,7 +188,7 @@
                         <tr><td>발행처 : 한국정보통신인력개발센터</td></tr>
                     </tbody>
                 </table>
-            </p>
+            </div>
         </div>
     </div>
 
