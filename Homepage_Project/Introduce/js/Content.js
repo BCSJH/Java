@@ -7,10 +7,10 @@ function changes(name){
     one_color(name);// 메뉴 선택한 값 하얗게 만들기
     
     if(name == "a_Home"){
+        fadeIn(Info_SideInfo);
         original_header(Info_Header, Info_Content);
         All_display(name);
     
-        fadeIn(Info_SideInfo);
         // Info_SideInfo.style.display = "block"; // sns 박스 값들 없애기
     }
     else{
@@ -56,7 +56,7 @@ function change_header(Info_Header, Info_Content) {
     div_box.css("display","inline");
 
     $(Info_Header).animate({
-        height : 110
+        height : 105
     },1000);
 
     Info_img.animate({
@@ -76,13 +76,13 @@ function original_header(Info_Header, Info_Content) {
     Info_img.animate({
         height : 40, 
         width : 40
-    },1000);
+    },800);
     // Info_img.height(100); // 애니메이션 없이 크기 조절
     // Info_img.width(100);
 
     $(Info_Header).animate({
         height : 80
-    },950);
+    },750);
 
     content_big_size(Info_Content);
 
@@ -91,7 +91,7 @@ function original_header(Info_Header, Info_Content) {
 
 function content_small_size(Info_Content){
     $(Info_Content).animate({
-        height : 520
+        height : 525
     });
 }
 function content_big_size(Info_Content){
@@ -136,11 +136,11 @@ function Element_display_none(name){
 
 //서서히 보여주기
 function fadeIn(Info_SideInfo){
+    $(Info_SideInfo).fadeIn('slow');
     $(Info_SideInfo).animate({
         opacity : "1",
         height : 40
-    },500);
-    Info_SideInfo.style.display = "block";
+    });
 }
 
 function fadeOut(Info_SideInfo){
