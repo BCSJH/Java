@@ -44,10 +44,10 @@ const info_space_check = (joinform) => {
 
 //입력 체크
 const join_info_check = (info) => {
-    let idReg = /[a-zA-Z0-9]{5,19}/g;
-    let phoneReg = /[0][1][(0-9)]{8,9}$/;
-    let pwdReg = /^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/g;
-    let infomsg = info.id + '_msg';
+    const idReg = /[a-zA-Z0-9]{5,19}/g;
+    const phoneReg = /[0][1][(0-9)]{8,9}$/;
+    const pwdReg = /^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/g;
+    const infomsg = info.id + '_msg';
 
     let password1 = document.getElementById("password1");
     if(info.value == ""){

@@ -18,7 +18,16 @@ function user_today_food_prints(){
     // use_time: "16:11:14"
     let food_indexs = [0,0,0,0,0,0];
     let sum = 0;
-    $(entries).each(function(index, item){
+    let today = new Date();
+
+    let year = today.getFullYear(); // 년도
+    let month = today.getMonth() + 1;  // 월
+    let date = today.getDate();  // 날짜
+    const today_ = year + "/" +month + "/" + date;// 2021/9/18
+    
+    const use = entries.filter(element => element.use_date == today_);
+
+    $(use).each(function(index, item){
         console.log(item);
         $(item.food).each(function(food_index, food_item){
             if(food_item.food_id == "라면"){
